@@ -29,6 +29,7 @@ RUN cd /opt/ && \
 RUN addgroup --gid 2000 tpot && \
     adduser --system --no-create-home --shell /bin/bash --uid 2000 --disabled-password --disabled-login --gid 2000 tpot
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD conpot.cfg /etc/conpot/conpot.cfg
 
 # Clean up
 RUN apt-get clean && \
