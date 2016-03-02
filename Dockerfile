@@ -35,4 +35,5 @@ ADD conpot.cfg /etc/conpot/conpot.cfg
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Run supervisor upon container start
 CMD ["/usr/bin/supervisord"]
