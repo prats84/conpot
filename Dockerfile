@@ -1,6 +1,6 @@
 # ConPot Dockerfile by MO
 #
-# VERSION 16.03.1
+# VERSION 16.03.2
 FROM ubuntu:14.04.4
 MAINTAINER MO
 
@@ -36,4 +36,4 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Run supervisor upon container start
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
