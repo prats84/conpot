@@ -1,7 +1,7 @@
 # ConPot Dockerfile by MO
 #
 # VERSION 16.03.2
-FROM ubuntu:14.04.4
+FROM ubuntu:14.04.4 
 MAINTAINER MO
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -23,6 +23,7 @@ RUN sed -i '1ideb mirror://mirrors.ubuntu.com/mirrors.txt trusty main universe m
     git clone https://github.com/mushorg/conpot.git && \
     cd conpot/ && \
     python setup.py install && \
+    cd .. && \
     rm -rf /opt/conpot /tmp/* /var/tmp/* && \
 
 # Clean up
@@ -38,4 +39,5 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD conpot.cfg /etc/conpot/conpot.cfg
 
 # Run supervisor upon container start
+
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
